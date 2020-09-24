@@ -19,24 +19,20 @@
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.6.0/dist/alpine.js" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+        <div class="flex justify-center min-h-screen bg-gray-900 sm:items-center sm:pt-0">
             {{-- @livewire('navigation-dropdown') --}}
             @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-
-                        @if (Route::has('register'))
+                @guest
+                    @if (Route::has('register'))
+                        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                        @endif
+                        </div>
                     @endif
-                </div>
+                @endguest
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="min-h-screen min-w-full">
                 {{ $slot }}
             </main>
 

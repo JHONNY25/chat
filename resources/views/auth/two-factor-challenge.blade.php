@@ -1,15 +1,15 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
+    <x-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
 
         <div x-data="{ recovery: false }">
-            <div class="mb-4 text-sm text-gray-600" x-show="! recovery">
+            <div class="mb-4 text-sm " x-show="! recovery">
                 {{ __('Please confirm access to your account by entering the authentication code provided by your authenticator application.') }}
             </div>
 
-            <div class="mb-4 text-sm text-gray-600" x-show="recovery">
+            <div class="mb-4 text-sm " x-show="recovery">
                 {{ __('Please confirm access to your account by entering one of your emergency recovery codes.') }}
             </div>
 
@@ -19,12 +19,12 @@
                 @csrf
 
                 <div class="mt-4" x-show="! recovery">
-                    <x-jet-label value="{{ __('Code') }}" />
+                    <x-label value="{{ __('Code') }}" />
                     <x-jet-input class="block mt-1 w-full" type="text" name="code" autofocus x-ref="code" autocomplete="one-time-code" />
                 </div>
 
                 <div class="mt-4" x-show="recovery">
-                    <x-jet-label value="{{ __('Recovery Code') }}" />
+                    <x-label value="{{ __('Recovery Code') }}" />
                     <x-jet-input class="block mt-1 w-full" type="text" name="recovery_code" x-ref="recovery_code" autocomplete="one-time-code" />
                 </div>
 
@@ -53,5 +53,5 @@
                 </div>
             </form>
         </div>
-    </x-jet-authentication-card>
+    </x-authentication-card>
 </x-guest-layout>
