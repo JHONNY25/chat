@@ -12,7 +12,7 @@
                         </button>
                       </span>
                     <input aria-placeholder="Busca tus amigos o contacta nuevos" placeholder="Busca tus amigos o contacta nuevos"
-                    class="py-2 pl-10 block w-full  rounded-full bg-gray-900 outline-none focus:outline-none focus:bg-white focus:text-gray-900" type="search" name="search" required autocomplete="search" />
+                    class="py-2 pl-10 block w-full rounded-full bg-gray-900 outline-none focus:outline-none focus:bg-white focus:text-gray-900" type="search" name="search" required autocomplete="search" />
                 </div>
             </div>
         </div>
