@@ -1,6 +1,6 @@
 <div class="grid grid-cols-3 min-w-full min-h-screen">
     <div class="col-span-1 bg-gray-800">
-        <div class="border-b bg-gray-700">
+        <div class="">
             @livewire('navigation-dropdown')
         </div>
         <div class="border-b border-gray-700">
