@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="col-span-2 bg-gray-700">
-            
+            @livewire('dashboard', ['view' => 'Default'])
         </div>
     </div>
 </x-app-layout>
