@@ -22,9 +22,9 @@
     <body class="font-sans antialiased">
         <div class="flex justify-center min-h-screen bg-gray-900 sm:items-center sm:pt-0">
             <!-- Page Content -->
-            <main class="min-h-screen min-w-full">
-                <div class="lg:w-full xl:w-9/12 mx-auto my-auto" style="min-height: 75% !important">
-                    <div class="overflow-hidden shadow-xl rounded-none min-h-screen">
+            <main class="min-w-full">
+                <div class="lg:w-full xl:w-9/12 mx-auto my-auto">
+                    <div class="overflow-hidden shadow-xl rounded-none ">
                         {{ $slot }}
                     </div>
                 </div>
