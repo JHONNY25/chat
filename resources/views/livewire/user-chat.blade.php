@@ -1,5 +1,5 @@
 <div>
-    <a class="hover:bg-gray-700 border-b border-gray-700 px-3 py-2 cursor-pointer flex items-center text-sm focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
+    <a wire:click="$emitTo('dashboard', 'changeViewUserChat')" class="hover:bg-gray-700 border-b border-gray-700 px-3 py-2 cursor-pointer flex items-center text-sm focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
         <img class="h-10 w-10 rounded-full object-cover"
         src="{{ $image }}"
         alt="{{ $name }}" />
