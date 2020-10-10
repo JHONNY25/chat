@@ -33,9 +33,10 @@
 
                         <div class="border-t border-gray-700"></div>
 
-                        <x-dropdown-link href="/user/profile">
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
+                        <a class="cursor-pointer block px-4 py-4 text-sm text-gray-200 hover:bg-gray-700 leading-5 focus:outline-none transition duration-150 ease-in-out"
+                        wire:click="$emitTo('dashboard','changeViewProfile')">
+                                {{ __('Profile') }}
+                        </a>
 
                         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <x-dropdown-link href="/user/api-tokens">
