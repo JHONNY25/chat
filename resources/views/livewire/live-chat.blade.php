@@ -5,198 +5,36 @@
         alt="Juanito" />
         <span class="block ml-2 font-bold text-base text-gray-200">Juanito</span>
     </div>
-    <div class="bg-gray-800 w-full overflow-y-scroll p-10" style="height: 750px;">
-        <div class="w-full flex justify-start">
-            <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                Mensaje de prueba 222asdasdasdasdasdasdadasdsdad ad asdasdasd asdasd asdasd as
-                <div class="absolute w-0 h-0"
-                style="border-left: 15px solid transparent;
-                    border-bottom: 15px solid transparent;
-                    top: 0;
-                    left: -25px;
-                    border-right: 15px solid #374151;"></div>
-            </div>
-        </div>
+    <div class="bg-gray-800 w-full overflow-y-auto p-10" style="height: 750px;">
+        <ul>
+            <li class="clearfix2">
+                <div class="w-full flex justify-start">
+                    <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
+                        Mensaje de prueba 222asdasdasdasdasdasdadasdsdad ad asdasdasd asdasd asdasd as
+                        <div class="absolute w-0 h-0"
+                        style="border-left: 15px solid transparent;
+                            border-bottom: 15px solid transparent;
+                            top: 0;
+                            left: -25px;
+                            border-right: 15px solid #374151;"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="clearfix2">
+                <div class="w-full flex justify-end">
+                    <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
+                        Mensaje de prueba
+                        <div class="absolute w-0 h-0"
+                        style="border-left: 15px solid #374151;
+                            border-bottom: 15px solid transparent;
+                            top: 0;
+                            right: -25px;
+                            border-right: 15px solid transparent;"></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
 
-        <div class="w-full flex justify-end">
-            <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                Mensaje de prueba
-                <div class="absolute w-0 h-0"
-                style="border-left: 15px solid #374151;
-                    border-bottom: 15px solid transparent;
-                    top: 0;
-                    right: -25px;
-                    border-right: 15px solid transparent;"></div>
-            </div>
-        </div>
-
-        <div class="w-full flex justify-end">
-            <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                Mensaje de prueba
-                <div class="absolute w-0 h-0"
-                style="border-left: 15px solid #374151;
-                    border-bottom: 15px solid transparent;
-                    top: 0;
-                    right: -25px;
-                    border-right: 15px solid transparent;"></div>
-            </div>
-        </div>
-
-        <div class="w-full flex justify-end">
-            <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                Mensaje de prueba
-                <div class="absolute w-0 h-0"
-                style="border-left: 15px solid #374151;
-                    border-bottom: 15px solid transparent;
-                    top: 0;
-                    right: -25px;
-                    border-right: 15px solid transparent;"></div>
-            </div>
-        </div>
-
-        <div class="w-full flex justify-end">
-            <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                Mensaje de prueba
-                <div class="absolute w-0 h-0"
-                style="border-left: 15px solid #374151;
-                    border-bottom: 15px solid transparent;
-                    top: 0;
-                    right: -25px;
-                    border-right: 15px solid transparent;"></div>
-            </div>
-        </div>
-
-        <div class="w-full flex justify-end">
-            <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                Mensaje de prueba
-                <div class="absolute w-0 h-0"
-                style="border-left: 15px solid #374151;
-                    border-bottom: 15px solid transparent;
-                    top: 0;
-                    right: -25px;
-                    border-right: 15px solid transparent;"></div>
-            </div>
-        </div>
-
-        <div class="w-full flex justify-end">
-            <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                Mensaje de prueba
-                <div class="absolute w-0 h-0"
-                style="border-left: 15px solid #374151;
-                    border-bottom: 15px solid transparent;
-                    top: 0;
-                    right: -25px;
-                    border-right: 15px solid transparent;"></div>
-            </div>
-        </div>
-
-        <div class="w-full flex justify-end">
-            <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                Mensaje de prueba
-                <div class="absolute w-0 h-0"
-                style="border-left: 15px solid #374151;
-                    border-bottom: 15px solid transparent;
-                    top: 0;
-                    right: -25px;
-                    border-right: 15px solid transparent;"></div>
-            </div>
-        </div>
-
-        <div class="w-full flex justify-end">
-            <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                Mensaje de prueba
-                <div class="absolute w-0 h-0"
-                style="border-left: 15px solid #374151;
-                    border-bottom: 15px solid transparent;
-                    top: 0;
-                    right: -25px;
-                    border-right: 15px solid transparent;"></div>
-            </div>
-        </div>
-
-        <div class="w-full flex justify-end">
-            <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                Mensaje de prueba
-                <div class="absolute w-0 h-0"
-                style="border-left: 15px solid #374151;
-                    border-bottom: 15px solid transparent;
-                    top: 0;
-                    right: -25px;
-                    border-right: 15px solid transparent;"></div>
-            </div>
-        </div>
-
-        <div class="w-full flex justify-end">
-            <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                Mensaje de prueba
-                <div class="absolute w-0 h-0"
-                style="border-left: 15px solid #374151;
-                    border-bottom: 15px solid transparent;
-                    top: 0;
-                    right: -25px;
-                    border-right: 15px solid transparent;"></div>
-            </div>
-        </div>
-
-        <div class="w-full flex justify-end">
-            <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                Mensaje de prueba
-                <div class="absolute w-0 h-0"
-                style="border-left: 15px solid #374151;
-                    border-bottom: 15px solid transparent;
-                    top: 0;
-                    right: -25px;
-                    border-right: 15px solid transparent;"></div>
-            </div>
-        </div>
-
-        <div class="w-full flex justify-end">
-            <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                Mensaje de prueba
-                <div class="absolute w-0 h-0"
-                style="border-left: 15px solid #374151;
-                    border-bottom: 15px solid transparent;
-                    top: 0;
-                    right: -25px;
-                    border-right: 15px solid transparent;"></div>
-            </div>
-        </div>
-
-        <div class="w-full flex justify-end">
-            <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                Mensaje de prueba
-                <div class="absolute w-0 h-0"
-                style="border-left: 15px solid #374151;
-                    border-bottom: 15px solid transparent;
-                    top: 0;
-                    right: -25px;
-                    border-right: 15px solid transparent;"></div>
-            </div>
-        </div>
-
-        <div class="w-full flex justify-end">
-            <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                Mensaje de prueba
-                <div class="absolute w-0 h-0"
-                style="border-left: 15px solid #374151;
-                    border-bottom: 15px solid transparent;
-                    top: 0;
-                    right: -25px;
-                    border-right: 15px solid transparent;"></div>
-            </div>
-        </div>
-
-        <div class="w-full flex justify-end">
-            <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                Mensaje de prueba
-                <div class="absolute w-0 h-0"
-                style="border-left: 15px solid #374151;
-                    border-bottom: 15px solid transparent;
-                    top: 0;
-                    right: -25px;
-                    border-right: 15px solid transparent;"></div>
-            </div>
-        </div>
     </div>
     <div class="bg-gray-700 w-full py-3 px-3 flex items-center justify-between">
         <button class="outline-none focus:outline-none">
