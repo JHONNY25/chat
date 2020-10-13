@@ -1,6 +1,6 @@
 <x-app-layout>
-    <div class="grid grid-cols-3 min-w-full min-h-screen">
-        <div class="col-span-1 bg-gray-800">
+    <div class="grid grid-cols-3 min-w-full" style="min-height: 90vh;">
+        <div class="col-span-1 bg-gray-800 border-r border-gray-600">
             <div class="">
                 @livewire('navigation-dropdown')
             </div>
