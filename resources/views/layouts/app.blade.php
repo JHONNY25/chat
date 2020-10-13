@@ -13,6 +13,16 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+        <style>
+            .clearfix2:after{
+                visibility: hidden;
+                display: block;
+                font-size: 0;
+                content: ' ';
+                clear: both;
+                height: 0;
+            }
+        </style>
         @livewireStyles
         <script src="{{ asset('js/app.js') }}" defer></script>
 
