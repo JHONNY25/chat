@@ -18,8 +18,8 @@ class CreateChatsTable extends Migration
             $table->unsignedBigInteger('user_recive');
             $table->unsignedBigInteger('user_sent');
             $table->text('text');
-            $table->string('image_path');
-            $table->string('file_path');
+            $table->string('image_path')->nullable();
+            $table->string('file_path')->nullable();
             $table->timestamps();
 
             $table->foreign('user_recive')->references('id')->on('users');
