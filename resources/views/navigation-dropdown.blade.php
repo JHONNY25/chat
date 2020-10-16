@@ -33,8 +33,7 @@
 
                         <div class="border-t border-gray-700"></div>
 
-                        <a class="cursor-pointer block px-4 py-4 text-sm text-gray-200 hover:bg-gray-700 leading-5 focus:outline-none transition duration-150 ease-in-out"
-                        wire:click="$emitTo('dashboard','changeViewProfile')">
+                        <a href="/user/profile" class="cursor-pointer block px-4 py-4 text-sm text-gray-200 hover:bg-gray-700 leading-5 focus:outline-none transition duration-150 ease-in-out">
                                 {{ __('Profile') }}
                         </a>
 
