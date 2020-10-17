@@ -35,7 +35,22 @@
             <main class="min-w-full">
                 <div class="lg:w-full xl:w-9/12 mx-auto my-auto">
                     <div class="overflow-hidden shadow-xl rounded-none ">
-                        {{ $slot }}
+                        <div class="grid grid-cols-3 min-w-full" style="min-height: 90vh;">
+                            <div class="col-span-1 bg-gray-800 border-r border-gray-600">
+                                <div class="">
+                                    @livewire('navigation-dropdown')
+                                </div>
+
+                                @livewire('search-input')
+
+                                <div>
+                                    @livewire('user-chat')
+                                </div>
+                            </div>
+                            <div class="col-span-2 bg-gray-700">
+                                {{ $slot }}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
