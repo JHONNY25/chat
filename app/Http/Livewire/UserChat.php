@@ -10,9 +10,11 @@ use Livewire\Component;
 class UserChat extends Component
 {
     public $chat;
+    public $usercurrent;
 
     public function mount(){
         $this->chat = new Chat();
+        $this->usercurrent = Auth::id();
     }
 
     public function render()
@@ -20,10 +22,12 @@ class UserChat extends Component
         return view('livewire.user-chat',[
             'userschats' => $this->chat->with([
                 'userrecive:id,name,profile_photo_path',
-                'message' => function($query){
+                'usersent:id,name,profile_photo_path',
+                'messages' => function($query){
                     $query->latest();
                 }
-                ])->where('user_sent',Auth::id())->get()
+                ])->where('user_sent',$this->usercurrent)
+                ->orWhere('user_recive',$this->usercurrent)->get()
         ]);
     }
 }
