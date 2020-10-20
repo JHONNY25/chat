@@ -24,5 +24,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return view('dashboard');
     });
 
-    Route::get('/chat/{name}', LiveChat::class);
+    Route::get('/chat/{id}', LiveChat::class);
 });

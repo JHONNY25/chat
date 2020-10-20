@@ -20,6 +20,8 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "laravel-echo": "^1.9.0",
+        "pusher-js": "^7.0.0",
         "turbolinks": "^5.2.0"
     }
 }
