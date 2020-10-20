@@ -23,7 +23,7 @@ class Chat extends Model
         return $this->belongsTo(User::class,'user_sent');
     }
 
-    public function message(){
+    public function messages(){
         return $this->hasMany(Messages::class,'chat_id');
     }
 }
