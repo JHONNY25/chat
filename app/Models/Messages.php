@@ -14,6 +14,7 @@ class Messages extends Model
         'text',
         'image_path',
         'file_path',
+        'send_date',
     ];
 
     public function chat(){
