@@ -24,11 +24,25 @@
             }
         </style>
         @livewireStyles
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/app.js') }}"></script>
 
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.6.0/dist/alpine.js" defer></script>
         <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+        <script>
+
+            // Enable pusher logging - don't include this in production
+            Pusher.logToConsole = true;
+
+            var pusher = new Pusher('2cac1339bd1bc2cdc08c', {
+              cluster: 'us2'
+            });
+
+            var channel = pusher.subscribe('livechat-channel');
+            channel.bind('SendMessage', function(data) {
+              alert(JSON.stringify(data));
+            });
+          </script>
     </head>
     <body class="font-sans antialiased">
         <div class="flex justify-center min-h-screen bg-gray-900 sm:items-center sm:pt-0">
@@ -60,5 +74,11 @@
         @stack('modals')
 
         @livewireScripts
+{{--         <script>
+                Echo.private('livechat-channel')
+                    .listen('SendMessage', (e) => {
+                        alert(e);
+                    })
+        </script> --}}
     </body>
 </html>
