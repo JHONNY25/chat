@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Chat;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -11,10 +12,16 @@ class UserChat extends Component
 {
     public $chat;
     public $usercurrent;
+    public $users;
+
+    protected $listeners = ['messageSent' => 'refresh'];
+
+    public function refresh(){ }
 
     public function mount(){
         $this->chat = new Chat();
         $this->usercurrent = Auth::id();
+        $this->users = [];
     }
 
     public function render()
