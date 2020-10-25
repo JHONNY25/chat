@@ -5,32 +5,42 @@ namespace App\Http\Livewire;
 use App\Models\Chat;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use App\Models\User;
 
 class LiveChat extends Component
 {
-    public $chatid;
+    public $userchatid;
     public $messages;
     public $usercurrent;
 
-    protected $listeners = ['messageSent' => 'noop'];
+    protected $listeners = ['messageSent' => 'refresh'];
 
-    public function noop(){}
+    public function refresh(){ }
 
     public function mount($id){
         $this->usercurrent = Auth::id();
-        $this->chatid = $id;
+        $this->userchatid = $id;
     }
 
     public function render()
     {
-        return view('livewire.live-chat',[
+        if(Chat::where('user_recive',$this->userchatid)->orWhere('user_sent',$this->userchatid)->exists()){
+            
+            return view('livewire.live-chat',[
                     'chat' => Chat::with([
                         'userrecive:id,name,profile_photo_path',
                         'usersent:id,name,profile_photo_path',
                         'messages'
-                    ])->find($this->chatid)
-                ])
-                ->layout('layouts.app');
+                    ])->where('user_recive',$this->userchatid)
+                    ->orWhere('user_sent',$this->userchatid)
+                    ->first()
+                ])->layout('layouts.app');
+        }else {
+            
+            return view('livewire.live-chat',[
+                    'user' => User::select('id','name','profile_photo_path')->find($this->userchatid)
+                ])->layout('layouts.app');
+        }
     }
 
 }
