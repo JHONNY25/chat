@@ -59,6 +59,7 @@
                                 @livewire('search-input')
 
                                 <div>
+                                    <h2 class="ml-2 text-gray-200 text-lg my-2">Chats</h2>
                                     @livewire('user-chat')
                                 </div>
                             </div>
