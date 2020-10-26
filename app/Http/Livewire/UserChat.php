@@ -12,7 +12,6 @@ class UserChat extends Component
 {
     public $chat;
     public $usercurrent;
-    public $users;
 
     protected $listeners = ['messageSent' => 'refresh'];
 
@@ -21,7 +20,6 @@ class UserChat extends Component
     public function mount(){
         $this->chat = new Chat();
         $this->usercurrent = Auth::id();
-        $this->users = [];
     }
 
     public function render()
