@@ -3,9 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Events\SendMessage as EventsSendMessage;
+use App\Models\Chat;
 use App\Models\Messages;
 use Livewire\Component;
-use App\Models\Chat;
 
 class SendMessage extends Component
 {
@@ -27,8 +27,13 @@ class SendMessage extends Component
         $this->user = $user;
     }
 
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
     public function sendMessage(){
-        //$this->validate();
+        $this->validate();
 
         if(!$this->chat){
             $this->chat = Chat::create([
