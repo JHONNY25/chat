@@ -3,9 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Models\Chat;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use App\Models\User;
 
 class LiveChat extends Component
 {
@@ -13,7 +13,10 @@ class LiveChat extends Component
     public $messages;
     public $usercurrent;
 
-    protected $listeners = ['messageSent' => 'refresh'];
+    protected $listeners = [
+        'messageSent' => 'refresh',
+        'reciveMessage' => 'refresh',
+    ];
 
     public function refresh(){ }
 
@@ -25,7 +28,7 @@ class LiveChat extends Component
     public function render()
     {
         if(Chat::where('user_recive',$this->userchatid)->orWhere('user_sent',$this->userchatid)->exists()){
-            
+
             return view('livewire.live-chat',[
                     'chat' => Chat::with([
                         'userrecive:id,name,profile_photo_path',
@@ -36,7 +39,7 @@ class LiveChat extends Component
                     ->first()
                 ])->layout('layouts.app');
         }else {
-            
+
             return view('livewire.live-chat',[
                     'user' => User::select('id','name','profile_photo_path')->find($this->userchatid)
                 ])->layout('layouts.app');

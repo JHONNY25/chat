@@ -46,6 +46,20 @@
 
     @livewire('send-message',['userchat' => $userchatid,'user' => $usercurrent])
 
+    <script>
+
+        // Enable pusher logging - don't include this in production
+        //Pusher.logToConsole = true;
+
+        var pusher = new Pusher('2cac1339bd1bc2cdc08c', {
+          cluster: 'us2'
+        });
+
+        var channel = pusher.subscribe('livechat-channel');
+        channel.bind('livechat-event', function(data) {
+          window.livewire.emit('reciveMessage');
+        });
+      </script>
 </div>
 
 
