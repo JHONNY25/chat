@@ -29,7 +29,7 @@
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.6.0/dist/alpine.js" defer></script>
         <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-        
+
     </head>
     <body class="font-sans antialiased">
         <div class="flex justify-center min-h-screen bg-gray-900 sm:items-center sm:pt-0">
@@ -62,6 +62,10 @@
         @stack('modals')
 
         @livewireScripts
+        <script>
+            const content = document.getElementById("messages-content");
+            content.scrollTo(0, 1500);
+        </script>
 
     </body>
 </html>
