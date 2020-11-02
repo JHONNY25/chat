@@ -12,7 +12,7 @@
         <span class="block ml-2 font-bold text-base text-gray-200">{{ $chat->userrecive->id === $usercurrent ? $chat->usersent->name : $chat->userrecive->name }}</span>
     @endif
     </div>
-    <div class="bg-gray-800 w-full overflow-y-auto p-10" style="height: 750px;">
+    <div id="messages-content" class="bg-gray-800 w-full overflow-y-auto p-10" style="height: 750px;">
         <ul>
         @if (isset($user))
             <div class="w-full flex text-center">
@@ -47,18 +47,19 @@
     @livewire('send-message',['userchat' => $userchatid,'user' => $usercurrent])
 
     <script>
-
+        
         // Enable pusher logging - don't include this in production
         //Pusher.logToConsole = true;
 
-        var pusher = new Pusher('2cac1339bd1bc2cdc08c', {
+        const pusher = new Pusher('2cac1339bd1bc2cdc08c', {
           cluster: 'us2'
         });
 
-        var channel = pusher.subscribe('livechat-channel');
+        const channel = pusher.subscribe('livechat-channel');
         channel.bind('livechat-event', function(data) {
           window.livewire.emit('reciveMessage');
         });
+
       </script>
 </div>
 
