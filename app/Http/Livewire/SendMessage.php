@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Events\SendMessage as EventsSendMessage;
+use App\Events\Writing;
 use App\Models\Chat;
 use App\Models\Messages;
 use Livewire\Component;
@@ -38,25 +39,30 @@ class SendMessage extends Component
         if(!$this->chat){
             $this->chat = Chat::create([
                 'user_recive' => $this->userchat,
-                'user_sent' => $this->user,
+                'user_sent' => $this->user->id,
             ]);
         }
 
         Messages::create([
             'chat_id' => $this->chat->id,
-            'user_id' => $this->user,
+            'user_id' => $this->user->id,
             'text' => $this->text,
             'send_date' => date('Y-m-d')
         ]);
 
         $this->emit('messageSent');
 
-        event(new EventsSendMessage($this->user,$this->text));
+        event(new EventsSendMessage($this->user->id,$this->text));
         $this->text = '';
     }
 
     public function render()
     {
+        if(strlen($this->text) > 0){
+            event(new Writing($this->user->name,$this->user->id));
+        }else{
+            event(new Writing());
+        }
         return view('livewire.send-message');
     }
 }
