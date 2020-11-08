@@ -63,8 +63,8 @@
 
         @livewireScripts
         <script>
-            const content = document.getElementById("messages-content");
-            content.scrollTo(0, 1500);
+            const messagescontent = document.getElementById("messages-content");
+            messagescontent.scrollTo(0, 1500);
         </script>
 
     </body>
