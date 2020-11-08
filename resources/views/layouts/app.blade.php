@@ -64,7 +64,7 @@
         @livewireScripts
         <script>
             const messagescontent = document.getElementById("messages-content");
-            messagescontent.scrollTo(0, 1500);
+            messagescontent.scrollTop = messagescontent.scrollHeight;
         </script>
 
     </body>
