@@ -62,10 +62,8 @@
         @stack('modals')
 
         @livewireScripts
-        <script>
-            const messagescontent = document.getElementById("messages-content");
-            messagescontent.scrollTop = messagescontent.scrollHeight;
-        </script>
+
+        @stack('scripts')
 
     </body>
 </html>
