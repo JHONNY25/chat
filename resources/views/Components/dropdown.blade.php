@@ -34,9 +34,9 @@ switch ($width) {
             x-transition:leave-start="transform opacity-100 scale-100"
             x-transition:leave-end="transform opacity-0 scale-95"
             class="z-50 absolute top-0 left-0 {{ $width }} {{ $alignmentClasses }}"
-            style="display: none;"
+            style="display: none;height: 90vh;"
             @click="open = false">
-        <div class="shadow-xs pt-16 {{ $contentClasses }}">
+        <div class="shadow-xs pt-16 h-full {{ $contentClasses }}">
             <div @click="open = false">
                 {{ $esc }}
             </div>
