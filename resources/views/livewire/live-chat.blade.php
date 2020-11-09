@@ -53,18 +53,22 @@
 
     @livewire('send-message',['userchat' => $userchatid,'user' => $usercurrent])
 
-    <script>
+</div>
 
+@push('scripts')
+    <script>
+        const messagescontent = document.querySelector("#messages-content");
+        messagescontent.scrollTop = messagescontent.scrollHeight;
         // Enable pusher logging - don't include this in production
         //Pusher.logToConsole = true;
 
         const pusher = new Pusher('2cac1339bd1bc2cdc08c', {
-          cluster: 'us2'
+        cluster: 'us2'
         });
 
         const channel = pusher.subscribe('livechat-channel');
         channel.bind('livechat-event', function(data) {
-          window.livewire.emit('reciveMessage');
+        window.livewire.emit('reciveMessage');
         });
 
         channel.bind('writing', function(data) {
@@ -74,7 +78,7 @@
                 window.livewire.emit('userWriting',null);
             }
         });
-      </script>
-</div>
+    </script>
+@endpush
 
 
