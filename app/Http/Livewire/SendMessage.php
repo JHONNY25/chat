@@ -6,6 +6,7 @@ use App\Events\SendMessage as EventsSendMessage;
 use App\Events\Writing;
 use App\Models\Chat;
 use App\Models\Messages;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class SendMessage extends Component
@@ -47,7 +48,7 @@ class SendMessage extends Component
             'chat_id' => $this->chat->id,
             'user_id' => $this->user->id,
             'text' => $this->text,
-            'send_date' => date('Y-m-d')
+            'send_date' => Carbon::now()
         ]);
 
         $this->emit('messageSent');
