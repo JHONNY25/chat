@@ -25,7 +25,13 @@
                 <li class="clearfix2">
                     <div class="w-full flex {{ $message->user_id === $usercurrent->id ? 'justify-end' : 'justify-start' }}">
                         <div class="bg-gray-700 rounded px-5 py-2 my-2 text-white relative" style="max-width: 300px;">
-                            {{ $message->text }}
+                            <span class="block">{{ $message->text }}</span>
+
+                            @php
+                                $send_date = new DateTime($message->send_date);
+                            @endphp
+                            <span class="text-xs block {{ $message->user_id === $usercurrent->id ? 'text-right' : 'text-left' }}">{{ $send_date->format('H:i A') }}</span>
+
                             <div class="absolute w-0 h-0"
                             style="border-bottom: 15px solid transparent;
                                 top: 0;
