@@ -25,6 +25,7 @@
         </style>
         @livewireStyles
 
+        <script src="{{ asset('js/app.js') }}"></script>
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.6.0/dist/alpine.js" defer></script>
         <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
@@ -68,7 +69,7 @@
               'pusherKey' => config('broadcasting.connections.pusher.key'),
             ]) !!};
         </script>
-        <script src="{{ asset('js/app.js') }}"></script>
+
         @stack('scripts')
 
     </body>
