@@ -17,7 +17,7 @@ class LiveChat extends Component
     protected $listeners = [
         'messageSent' => 'refresh',
         'reciveMessage' => 'refresh',
-        'userWriting' => 'userWriting',
+        //'userWriting' => 'userWriting',
     ];
 
     public function mount($id){
@@ -28,13 +28,13 @@ class LiveChat extends Component
 
     public function refresh(){ }
 
-    public function userWriting($data){
+    /* public function userWriting($data){
         if($data !== null){
             $this->userWriting  = $data;
         }else{
             $this->userWriting = [];
         }
-    }
+    } */
 
     public function render()
     {
