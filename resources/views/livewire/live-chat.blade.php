@@ -48,13 +48,10 @@
             @endforeach
         @endif
         </ul>
-        @if(!empty($userWriting) && $userWriting['user_current'] !== $usercurrent->id)
-            <div class="w-full flex justify-start">
-                <div class="px-5 py-2 my-2 text-white">
-                    {{ $userWriting['user_name']." esta escribiendo ..." }}
-                </div>
-            </div>
-        @endif
+
+        <div id="typing" class="w-full flex justify-start" style="display: none;">
+            <div id="usertyping" class="px-5 py-2 my-2 text-white"></div>
+        </div>
     </div>
 
     @livewire('send-message',['userchat' => $userchatid,'user' => $usercurrent])
@@ -63,27 +60,56 @@
 
 @push('scripts')
     <script>
+        const message = document.querySelector("#message");
+        const typing = document.querySelector("#typing");
+        const usertyping = document.querySelector("#usertyping");
         const messagescontent = document.querySelector("#messages-content");
+
         messagescontent.scrollTop = messagescontent.scrollHeight;
+
         // Enable pusher logging - don't include this in production
         //Pusher.logToConsole = true;
 
         const pusher = new Pusher('2cac1339bd1bc2cdc08c', {
-        cluster: 'us2'
+            cluster: 'us2'
         });
 
         const channel = pusher.subscribe('livechat-channel');
+
         channel.bind('livechat-event', function(data) {
-        window.livewire.emit('reciveMessage');
+            window.livewire.emit('reciveMessage');
         });
 
-        channel.bind('writing', function(data) {
+        //example with livewire and events
+        /* channel.bind('writing', function(data) {
             if(data.user_name !== null){
                 window.livewire.emit('userWriting',data);
             }else{
                 window.livewire.emit('userWriting',null);
             }
+        }); */
+
+        message.addEventListener('keydown', (event) => {
+            let channel = Echo.private('livechat-channel');
+
+            setTimeout(function() {
+                channel.whisper('typing', {
+                        user: Laravel.user,
+                        typing: true
+                });
+            }, 300);
         });
+
+        Echo.private('livechat-channel')
+        .listenForWhisper('typing', (e) => {
+            usertyping.innerHTML = `${e.user.name} esta escribiendo ...`;
+            e.typing ? typing.style.display = "block" : typing.style.display = "none";
+
+            setTimeout( () => {
+                typing.style.display = "none"
+            }, 1200);
+        })
+
     </script>
 @endpush
 
