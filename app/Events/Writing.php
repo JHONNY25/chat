@@ -25,7 +25,7 @@ class Writing implements ShouldBroadcast
 
     public function broadcastOn()
     {
-        return ['livechat-channel'];
+        return new PrivateChannel('livechat-channel');
     }
 
     public function broadcastAs()

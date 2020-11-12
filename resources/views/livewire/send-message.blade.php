@@ -1,5 +1,5 @@
 <div class="bg-gray-700 w-full py-3 px-3 flex items-center justify-between">
-    <input wire:model="text" aria-placeholder="Escribe un mensaje aquí" placeholder="Escribe un mensaje aquí"
+    <input id="message" wire:model="text" wire:keydown.enter="sendMessage" aria-placeholder="Escribe un mensaje aquí" placeholder="Escribe un mensaje aquí"
         class="py-2 mx-3 pl-5 block w-full rounded-full bg-gray-900 outline-none focus:outline-none focus:bg-white focus:text-gray-900" type="text" name="message" required/>
     @if(!empty($text))
         <button wire:click="sendMessage" class="outline-none focus:outline-none">
@@ -8,7 +8,6 @@
             </svg>
         </button>
     @endif
-
 </div>
 
 
