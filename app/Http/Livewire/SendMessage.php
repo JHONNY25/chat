@@ -34,6 +34,16 @@ class SendMessage extends Component
         $this->validateOnly($propertyName);
     }
 
+    // example user writing with livewire using wire:keydown
+    /* public function userWriting()
+    {
+        if(strlen($this->text) > 0){
+            event(new Writing($this->user->name,$this->user->id));
+        }else{
+            event(new Writing());
+        }
+    } */
+
     public function sendMessage(){
         $this->validate();
 
@@ -53,17 +63,12 @@ class SendMessage extends Component
 
         $this->emit('messageSent');
 
-        event(new EventsSendMessage($this->user->id,$this->text));
+        event(new EventsSendMessage((int)$this->user->id,$this->text));
         $this->text = '';
     }
 
     public function render()
     {
-        if(strlen($this->text) > 0){
-            event(new Writing($this->user->name,$this->user->id));
-        }else{
-            event(new Writing());
-        }
         return view('livewire.send-message');
     }
 }
