@@ -11,6 +11,11 @@
         alt="{{ $chat->userrecive->id === $usercurrent->id ? $chat->usersent->name : $chat->userrecive->name }}" />
         <span class="block ml-2 font-bold text-base text-gray-200">{{ $chat->userrecive->id === $usercurrent->id ? $chat->usersent->name : $chat->userrecive->name }}</span>
     @endif
+    <span class="connected text-green-500 ml-2 hidden" >
+        <svg width="6" height="6">
+           <circle cx="3" cy="3" r="3" fill="currentColor"></circle>
+        </svg>
+     </span>
     </div>
     <div id="messages-content" class="bg-gray-800 w-full overflow-y-auto p-10" style="height: 750px;">
         <ul>
@@ -59,11 +64,13 @@
 </div>
 
 @push('scripts')
+
     <script>
         const message = document.querySelector("#message");
         const typing = document.querySelector("#typing");
         const usertyping = document.querySelector("#usertyping");
         const messagescontent = document.querySelector("#messages-content");
+        const chatid = {!! $chat->id !!};
 
         messagescontent.scrollTop = messagescontent.scrollHeight;
 
@@ -90,25 +97,28 @@
         }); */
 
         message.addEventListener('keydown', (event) => {
-            let channel = Echo.private('livechat-channel');
+            let chat = Echo.private(`chat.${chatid}`);
 
             setTimeout(function() {
-                channel.whisper('typing', {
+                chat.whisper('typing', {
                         user: Laravel.user,
-                        typing: true
+                        typing: true,
+                        chatid: chatid
                 });
             }, 300);
         });
 
-        Echo.private('livechat-channel')
+        Echo.private(`chat.${chatid}`)
         .listenForWhisper('typing', (e) => {
-            usertyping.innerHTML = `${e.user.name} esta escribiendo ...`;
-            e.typing ? typing.style.display = "block" : typing.style.display = "none";
+            if(e.chatid === chatid){
+                usertyping.innerHTML = `${e.user.name} esta escribiendo ...`;
+                e.typing ? typing.style.display = "block" : typing.style.display = "none";
 
-            setTimeout( () => {
-                typing.style.display = "none"
-            }, 1200);
-        })
+                setTimeout( () => {
+                    typing.style.display = "none"
+                }, 1200);
+            }
+        });
 
     </script>
 @endpush
