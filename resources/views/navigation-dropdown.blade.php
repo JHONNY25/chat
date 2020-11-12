@@ -10,7 +10,14 @@
                             <button class="cursor-pointer flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
                                 <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                             </button>
-                            <span class="block ml-2 font-bold text-base text-gray-200">{{ Auth::user()->name }}</span>
+                            <div class="block ml-2">
+                                <span class="block text-gray-200 font-bold text-base">{{ Auth::user()->name }}</span>
+                                <div wire:offline>
+                                    <div wire:offline.class="text-yellow-300">
+                                        Te has desconectado
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </x-slot>
 
