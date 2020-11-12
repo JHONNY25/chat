@@ -12,7 +12,7 @@ class LiveChat extends Component
     public $userchatid;
     public $messages;
     public $usercurrent;
-    public $userWriting;
+    //public $userWriting;
 
     protected $listeners = [
         'messageSent' => 'refresh',
@@ -23,7 +23,7 @@ class LiveChat extends Component
     public function mount($id){
         $this->usercurrent = Auth::user();
         $this->userchatid = $id;
-        $this->userWriting = [];
+        //$this->userWriting = [];
     }
 
     public function refresh(){ }
