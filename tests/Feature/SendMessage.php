@@ -5,8 +5,6 @@ namespace Tests\Feature;
 use App\Http\Livewire\SendMessage as LivewireSendMessage;
 use App\Models\Messages;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -19,27 +17,31 @@ class SendMessage extends TestCase
         $user_sent = User::factory()->create();
         $this->actingAs($user_sent);
 
-        Livewire::test(LivewireSendMessage::class,['userchat' => $user_recive,'user' => $user_sent])
+        Livewire::test(LivewireSendMessage::class,['userchat' => $user_recive['id'],'user' => $user_sent ])
         ->set('text','Test send message')
         ->call('sendMessage');
 
-        $this->assertTrue(Messages::where('user_id',$user_sent->id)->where('text','Test send message')->exists());
+        $this->assertTrue(Messages::where('user_id',$user_sent['id'])->where('text','Test send message')->exists());
     }
 
     public function test_text_is_required(){
-        $this->actingAs(User::factory()->create());
+        $user_recive = User::factory()->create();
+        $user_sent = User::factory()->create();
+        $this->actingAs($user_sent);
 
-        Livewire::test(LivewireSendMessage::class)
+        Livewire::test(LivewireSendMessage::class,['userchat' => $user_recive['id'],'user' => $user_sent])
         ->set('text','')
         ->call('sendMessage')
         ->assertHasErrors(['text' => 'required']);
     }
 
     public function test_emit_event_message_sent(){
-        $this->actingAs(User::factory()->create());
+        $user_recive = User::factory()->create();
+        $user_sent = User::factory()->create();
+        $this->actingAs($user_sent);
 
-        Livewire::test(LivewireSendMessage::class)
-        ->emit('messageSent')
+        Livewire::test(LivewireSendMessage::class,['userchat' => $user_recive['id'],'user' => $user_sent])
+        ->set('text','Test send message')
         ->call('sendMessage')
         ->assertEmitted('messageSent');
     }
