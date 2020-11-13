@@ -21,3 +21,13 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 Broadcast::channel('livechat-channel', function ($user) {
     return Auth::user();
 });
+
+Broadcast::channel('chat.{chatid}', function ($user, $chatid) {
+    return $user->id;
+});
+
+Broadcast::channel('online-chat', function ($user) {
+    if (auth()->check()) {
+        return $user->id;
+    }
+});
