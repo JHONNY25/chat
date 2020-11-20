@@ -70,7 +70,7 @@
         const typing = document.querySelector("#typing");
         const usertyping = document.querySelector("#usertyping");
         const messagescontent = document.querySelector("#messages-content");
-        const chatid = {!! $chat->id !!};
+        const chatid = {!! isset($user) ? $user->id : $chat->id !!};
 
         messagescontent.scrollTop = messagescontent.scrollHeight;
 
